@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuadratTouch
 
 class ViewController: UIViewController {
 
