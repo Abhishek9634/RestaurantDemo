@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-RestaurantDemo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RestaurantDemoTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RestaurantDemoUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QuadratTouch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>4AB396CC4264FEFEC2A911D85BFA57B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D3EADB72D1345D37D7490EB73D0A7CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79F3603279CCE6269C8B2EC92A9EAF0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D47C572C455B43E91A7E7398E9FE959E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

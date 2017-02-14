@@ -1,0 +1,22 @@
+PODS:
+  - QuadratTouch (1.1.3)
+
+DEPENDENCIES:
+  - QuadratTouch (from `https://github.com/Constantine-Fry/das-quadrat`, branch `fry-swift30`)
+
+EXTERNAL SOURCES:
+  QuadratTouch:
+    :branch: fry-swift30
+    :git: https://github.com/Constantine-Fry/das-quadrat
+
+CHECKOUT OPTIONS:
+  QuadratTouch:
+    :commit: d110fa68e4adee64abf8d8cc2c304fc4a490c20e
+    :git: https://github.com/Constantine-Fry/das-quadrat
+
+SPEC CHECKSUMS:
+  QuadratTouch: 9e311cbd4f0573b58cafe6783df1fa7ce2458afa
+
+PODFILE CHECKSUM: 742066bb68dcbe798683e531a1ef9192b55da6d4
+
+COCOAPODS: 1.2.0.beta.3
