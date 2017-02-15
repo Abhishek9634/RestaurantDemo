@@ -12,6 +12,7 @@ class RDRestaurant: NSObject {
 
     public var id : NSString?
     public var name : NSString?
+    public var iconImgUrl : NSString?
     
     public var contact : NSDictionary?
     public var phone : NSString?
@@ -106,22 +107,32 @@ class RDRestaurant: NSObject {
     
     public func parseDictionary(dictionary : [String:Any]) {
         
-        self.id = dictionary["author"] as? NSString
-        self.name = dictionary["title"] as? NSString
+        self.id = dictionary["id"] as? NSString
+        self.name = dictionary["name"] as? NSString
         self.contact = dictionary["contact"] as? NSDictionary
         self.phone = dictionary["url"] as? NSString
         self.formattedPhone = dictionary["urlToImage"] as? NSString
         self.twitter = dictionary["twitter"] as? NSString
         self.location = dictionary["location"] as? NSDictionary
         
+        self.address = self.location?["address"] as? NSString
+        self.crossStreet = self.location?["crossStreet"] as? NSString
+        
         self.categories = dictionary["categories"] as? NSArray
+        let dict = self.categories?.object(at: 0) as? NSDictionary
+        self.icon = dict?["icon"] as? NSDictionary
+        self.prefix = self.icon?["prefix"] as? NSString
+        self.suffix = self.icon?["suffix"] as? NSString
+        
+        self.iconImgUrl = NSString(format : "%@100%@",self.prefix!, self.suffix!)
+        print("ICON_IMG_URL \(self.iconImgUrl)")
         
         self.verified = dictionary["categories"] as? Bool
         self.stats = dictionary["stats"] as? NSDictionary
     }
     /*
 
-     
+     JSON SAMPLE #1 : Pretty Print
      
      "id": "4afe2d94f964a520872e22e3",
      "name": "The Fish Market Santa Clara",
@@ -297,12 +308,28 @@ class RDRestaurant: NSObject {
      "hasPerk": false
      
      
-     // sample raw
+     // JSON SAMPLE #2 : RAW
      
      {"id":"4a3ad2f3f964a52051a01fe3","name":"Faz Restaurants & Catering","contact":{"phone":"4087528000","formattedPhone":"(408) 752-8000","twitter":"fazrestaurant"},"location":{"address":"1108 N Mathilda Ave","lat":37.404692161430596,"lng":-122.0251388714158,"labeledLatLngs":[{"label":"display","lat":37.404692161430596,"lng":-122.0251388714158}],"distance":8073,"postalCode":"94089","cc":"US","city":"Sunnyvale","state":"CA","country":"United States","formattedAddress":["1108 N Mathilda Ave","Sunnyvale, CA 94089","United States"]},"categories":[{"id":"4bf58dd8d48988d1c0941735","name":"Mediterranean Restaurant","pluralName":"Mediterranean Restaurants","shortName":"Mediterranean","icon":{"prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/mediterranean_","suffix":".png"},"primary":true}],"verified":true,"stats":{"checkinsCount":2786,"usersCount":1659,"tipCount":31},"url":"https:\/\/www.facebook.com\/fazrestaurant","hasMenu":true,"menu":{"type":"Menu","label":"Menu","anchor":"View Menu","url":"https:\/\/foursquare.com\/v\/faz-restaurants--catering\/4a3ad2f3f964a52051a01fe3\/menu","mobileUrl":"https:\/\/foursquare.com\/v\/4a3ad2f3f964a52051a01fe3\/device_menu"},"allowMenuUrlEdit":true,"beenHere":{"lastCheckinExpiredAt":0},"specials":{"count":0,"items":[]},"hereNow":{"count":1,"summary":"One other person is here","groups":[{"type":"others","name":"Other people here","count":1,"items":[]}]},"referralId":"v-1487133170","venueChains":[{"id":"556e5cddbd6a82902e29895e"}],"hasPerk":false},
      
      */
     
+    /*
+     IMAGE : 
+     
+     this is the format I use when using categories picture url
+     
+     prefix -> https://ss3.4sqi.net/img/categories_v2/nightlife/karaoke_
+     
+     karaoke is the image name always followed by an underscore then the image size.
+     
+     suffix -> .png
+     
+     then add the valid sizes. there are many sizes supported by I use 64
+     
+     so https://ss3.4sqi.net/img/categories_v2/nightlife/karaoke_64.png
+     
+     */
 
     
 }

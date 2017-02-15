@@ -13,6 +13,8 @@
 		4688A5511E537EA8003628AB /* RDHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688A5501E537EA8003628AB /* RDHTTPRequest.swift */; };
 		4688A5531E537EBE003628AB /* RDHTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688A5521E537EBE003628AB /* RDHTTPResponse.swift */; };
 		4688A5551E537EE8003628AB /* RDNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688A5541E537EE8003628AB /* RDNetworkManager.swift */; };
+		4689BA011E54D6A2005DE826 /* RDVenueTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689BA001E54D6A2005DE826 /* RDVenueTableVC.swift */; };
+		4689BA041E54E0BB005DE826 /* RDVenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689BA031E54E0BB005DE826 /* RDVenueCell.swift */; };
 		46FD3BE31E51A0D7007E29AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FD3BE21E51A0D7007E29AC /* AppDelegate.swift */; };
 		46FD3BE51E51A0D7007E29AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FD3BE41E51A0D7007E29AC /* ViewController.swift */; };
 		46FD3BE81E51A0D7007E29AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FD3BE61E51A0D7007E29AC /* Main.storyboard */; };
@@ -67,6 +69,8 @@
 		4688A5501E537EA8003628AB /* RDHTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDHTTPRequest.swift; sourceTree = "<group>"; };
 		4688A5521E537EBE003628AB /* RDHTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDHTTPResponse.swift; sourceTree = "<group>"; };
 		4688A5541E537EE8003628AB /* RDNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDNetworkManager.swift; sourceTree = "<group>"; };
+		4689BA001E54D6A2005DE826 /* RDVenueTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDVenueTableVC.swift; sourceTree = "<group>"; };
+		4689BA031E54E0BB005DE826 /* RDVenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDVenueCell.swift; sourceTree = "<group>"; };
 		46FD3BDF1E51A0D7007E29AC /* RestaurantDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FD3BE21E51A0D7007E29AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46FD3BE41E51A0D7007E29AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			children = (
 				46FD3BE41E51A0D7007E29AC /* ViewController.swift */,
 				4688A54C1E536E08003628AB /* RDLocationManager.swift */,
+				4689BA001E54D6A2005DE826 /* RDVenueTableVC.swift */,
 			);
 			name = RDViewControllers;
 			sourceTree = "<group>";
@@ -150,6 +155,14 @@
 				4688A54E1E537A6F003628AB /* RDRestaurant.swift */,
 			);
 			name = RDRestaurant;
+			sourceTree = "<group>";
+		};
+		4689BA021E54E087005DE826 /* RDTableCells */ = {
+			isa = PBXGroup;
+			children = (
+				4689BA031E54E0BB005DE826 /* RDVenueCell.swift */,
+			);
+			name = RDTableCells;
 			sourceTree = "<group>";
 		};
 		46FD3BD61E51A0D7007E29AC = {
@@ -182,6 +195,7 @@
 				46FD3BEC1E51A0D7007E29AC /* Assets.xcassets */,
 				46FD3BEE1E51A0D7007E29AC /* LaunchScreen.storyboard */,
 				46FD3BF11E51A0D7007E29AC /* Info.plist */,
+				4689BA021E54E087005DE826 /* RDTableCells */,
 				4613B0D11E541E3A0094F09D /* RDViewControllers */,
 				4613B0D01E541E200094F09D /* RDDatabase */,
 				4688A5571E53818E003628AB /* RDRestaurant */,
@@ -516,10 +530,12 @@
 				4688A5551E537EE8003628AB /* RDNetworkManager.swift in Sources */,
 				464FDB2B1E5223AB00507202 /* RDDatabaseManager.swift in Sources */,
 				46FD3BE51E51A0D7007E29AC /* ViewController.swift in Sources */,
+				4689BA011E54D6A2005DE826 /* RDVenueTableVC.swift in Sources */,
 				4688A5511E537EA8003628AB /* RDHTTPRequest.swift in Sources */,
 				4688A54F1E537A6F003628AB /* RDRestaurant.swift in Sources */,
 				4688A5531E537EBE003628AB /* RDHTTPResponse.swift in Sources */,
 				46FD3BEB1E51A0D7007E29AC /* RestaurantDemo.xcdatamodeld in Sources */,
+				4689BA041E54E0BB005DE826 /* RDVenueCell.swift in Sources */,
 				4688A54D1E536E08003628AB /* RDLocationManager.swift in Sources */,
 				46FD3BE31E51A0D7007E29AC /* AppDelegate.swift in Sources */,
 			);
