@@ -18,12 +18,13 @@ class RDRestaurant: NSObject {
     public var phone : NSString?
     public var formattedPhone : NSString?
     public var twitter : NSString?
+    public var facebookUsername : NSString?
     
     public var location : NSDictionary?
     public var address : NSString?
     public var crossStreet : NSString?
-    public var lat : NSNumber?
-    public var lng : NSNumber?
+    public var lat : NSString?
+    public var lng : NSString?
     
     public var labeledLatLngs : NSArray? // consist dictionary object(s)
     public var l_lat : NSNumber?
@@ -109,7 +110,13 @@ class RDRestaurant: NSObject {
         
         self.id = dictionary["id"] as? NSString
         self.name = dictionary["name"] as? NSString
+        
         self.contact = dictionary["contact"] as? NSDictionary
+        self.phone = self.contact?["phone"] as? NSString
+        self.formattedPhone = self.contact?["formattedPhone"] as? NSString
+        self.twitter = self.contact?["twitter"] as? NSString
+        self.facebookUsername = self.contact?["facebookUsername"] as? NSString
+        
         self.phone = dictionary["url"] as? NSString
         self.formattedPhone = dictionary["urlToImage"] as? NSString
         self.twitter = dictionary["twitter"] as? NSString
@@ -117,12 +124,18 @@ class RDRestaurant: NSObject {
         
         self.address = self.location?["address"] as? NSString
         self.crossStreet = self.location?["crossStreet"] as? NSString
+        self.lat = self.location?["lat"] as? NSString
+        self.lng = self.location?["lng"] as? NSString
+        self.formattedAddress = self.location?["formattedAddress"] as? NSArray
         
         self.categories = dictionary["categories"] as? NSArray
         let dict = self.categories?.object(at: 0) as? NSDictionary
         self.icon = dict?["icon"] as? NSDictionary
         self.prefix = self.icon?["prefix"] as? NSString
         self.suffix = self.icon?["suffix"] as? NSString
+        
+        
+        self.url = dictionary["url"] as? NSString
         
         self.iconImgUrl = NSString(format : "%@100%@",self.prefix!, self.suffix!)
         print("ICON_IMG_URL \(self.iconImgUrl)")

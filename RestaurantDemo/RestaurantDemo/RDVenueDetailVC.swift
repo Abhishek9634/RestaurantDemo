@@ -12,8 +12,11 @@ class RDVenueDetailVC: UITableViewController {
 
     let reusableCellId = "RDVenueDetailCell" as String
     public var restaurant : RDRestaurant?
-    @IBOutlet weak var venurIconView: UIImageView!
     
+    @IBOutlet weak var venurIconView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var contactLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,11 @@ class RDVenueDetailVC: UITableViewController {
             self.venurIconView.image = UIImage(data: data as Data)
         }
         
+        self.nameLabel.text = self.restaurant?.name! as String?
+        self.addressLabel.text = self.restaurant?.formattedAddress?.description
+        
+        self.contactLabel.text = self.restaurant?.formattedPhone != nil ? self.restaurant?.formattedPhone! as String? : ""
+//      self.contactLabel.text = "12345"
         DispatchQueue.main.async {
             self.venurIconView.layer.cornerRadius = self.venurIconView.frame.size.width/2;
             self.venurIconView.layer.masksToBounds = true
@@ -66,7 +74,69 @@ class RDVenueDetailVC: UITableViewController {
         return cell
     }
  
+    //============================================================================================================================
+    // BUTTON ACTION
+    //============================================================================================================================
+    
+    @IBAction func webPageButtonAction(_ sender: Any) {
+    
+        if (self.restaurant?.url == nil || self.restaurant?.url == nil) {
+            self.showAlert()
+            return
+        }
+        
+        let webURL = NSURL(string : self.restaurant?.url as! String)
+        UIApplication.shared.open(webURL as! URL, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func reviewButtonAction(_ sender: Any) {
+    
+        self.showAlert()
+    }
+    
+    @IBAction func locationButtonAction(_ sender: Any) {
+        
+        if (self.restaurant?.lat == nil || self.restaurant?.lng == nil) {
+            self.showAlert()
+            return
+        }
+        
+        let location = NSString(format : "https://www.google.co.in/maps/@%@,%@,16z", (restaurant?.lat)!, (restaurant?.lng)!)
+        let webURL = NSURL(string : location as String)
+        UIApplication.shared.open(webURL as! URL, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func twitterButtonAction(_ sender: Any) {
+        
+        if (self.restaurant?.twitter == nil) {
+            self.showAlert()
+            return
+        }
+        
+        let twitterURL = NSString(format : "https://twitter.com/%@?lang=en",(restaurant?.twitter)!)
+        let webURL = NSURL(string : twitterURL as String)
+        UIApplication.shared.open(webURL as! URL, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func fbButtonAction(_ sender: Any) {
+     
+        if (self.restaurant?.facebookUsername == nil) {
+            self.showAlert()
+            return
+        }
+        
+        let faceBookURL = NSString(format : "https://m.facebook.com/%@",(restaurant?.facebookUsername)!)
+        let webURL = NSURL(string : faceBookURL as String)
+        UIApplication.shared.open(webURL as! URL, options: [:], completionHandler: nil)
+    }
 
+    func showAlert() {
+        let alert = UIAlertController.init(title: "Oops!!!", message: "Not Available", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
