@@ -82,9 +82,7 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
                                                 message: "In order to work, app needs your location", preferredStyle: .alert)
         let openSettings = UIAlertAction(title: "Open settings", style: .default, handler: {
             (action) -> Void in
-            let URL = Foundation.URL(string: UIApplicationOpenSettingsURLString)
-//            UIApplication.shared.openURL(URL!)
-            
+            let URL = Foundation.URL(string: UIApplicationOpenSettingsURLString)            
             UIApplication.shared.open(URL!, options: [:], completionHandler: { (success) in
                 print("Open : \(success)")
             })

@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RDVenueCell" rowHeight="120" id="DOw-hP-Fni" customClass="RDVenueCell" customModule="RestaurantDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RDVenueCell" rowHeight="120" id="DOw-hP-Fni" customClass="RDVenueCell" customModule="RestaurantDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOw-hP-Fni" id="9sQ-If-0nI">
@@ -126,17 +126,58 @@
             </objects>
             <point key="canvasLocation" x="3724" y="131"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Venue Detail View-->
         <scene sceneID="zr0-xs-0CL">
             <objects>
-                <tableViewController id="Gle-Iv-6xT" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RDVenueDetailVC" title="Venue Detail View" id="Gle-Iv-6xT" customClass="RDVenueDetailVC" customModule="RestaurantDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Udk-aD-Cci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="nB1-I7-IKd">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rp" translatesAutoresizingMaskIntoConstraints="NO" id="5TI-ra-8sY">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
+                                </imageView>
+                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7f-eE-nZk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kad-8g-jQg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-yj-y7d">
+                                                <rect key="frame" x="133" y="62" width="108" height="108"/>
+                                                <color key="backgroundColor" red="1" green="0.82141130623242786" blue="0.70844248590447445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="108" id="98g-RY-Y4G"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bNA-yj-y7d" firstAttribute="centerX" secondItem="kad-8g-jQg" secondAttribute="centerX" id="TNp-Zr-Pzg"/>
+                                            <constraint firstItem="bNA-yj-y7d" firstAttribute="top" secondItem="kad-8g-jQg" secondAttribute="top" constant="62" id="kCO-Jb-VGA"/>
+                                            <constraint firstItem="bNA-yj-y7d" firstAttribute="centerY" secondItem="kad-8g-jQg" secondAttribute="centerY" id="mye-5a-tZq"/>
+                                        </constraints>
+                                    </view>
+                                    <blurEffect style="regular"/>
+                                </visualEffectView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="x7f-eE-nZk" firstAttribute="trailing" secondItem="5TI-ra-8sY" secondAttribute="trailing" id="1p9-gm-bdh"/>
+                                <constraint firstItem="x7f-eE-nZk" firstAttribute="bottom" secondItem="5TI-ra-8sY" secondAttribute="bottom" id="BwF-xm-dE3"/>
+                                <constraint firstItem="x7f-eE-nZk" firstAttribute="top" secondItem="5TI-ra-8sY" secondAttribute="top" id="C8E-Vw-G2Q"/>
+                                <constraint firstItem="5TI-ra-8sY" firstAttribute="leading" secondItem="x7f-eE-nZk" secondAttribute="leading" id="WDM-X9-KGW"/>
+                                <constraint firstItem="x7f-eE-nZk" firstAttribute="top" secondItem="nB1-I7-IKd" secondAttribute="top" id="XSm-5u-IwJ"/>
+                                <constraint firstItem="5TI-ra-8sY" firstAttribute="leading" secondItem="nB1-I7-IKd" secondAttribute="leading" id="XUF-4h-ax5"/>
+                                <constraint firstAttribute="bottom" secondItem="x7f-eE-nZk" secondAttribute="bottom" id="ig9-lj-iUZ"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9Rg-7k-hF6">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RDVenueDetailCell" id="9Rg-7k-hF6" customClass="RDVenueDetailCell" customModule="RestaurantDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="261" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Rg-7k-hF6" id="w5s-HX-svh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -149,10 +190,13 @@
                             <outlet property="delegate" destination="Gle-Iv-6xT" id="Oky-pT-Nbh"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="venurIconView" destination="bNA-yj-y7d" id="zRA-EJ-uI2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hV-Wp-ahy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4607" y="131"/>
+            <point key="canvasLocation" x="4605.6000000000004" y="130.88455772113943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sag-dJ-Ynk">
@@ -173,4 +217,7 @@
             <point key="canvasLocation" x="2786" y="131"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rp" width="375" height="250"/>
+    </resources>
 </document>

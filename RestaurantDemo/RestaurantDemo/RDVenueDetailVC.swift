@@ -1,5 +1,5 @@
 //
-//  RDVenueTableVC.swift
+//  RDVenueDetailVC.swift
 //  RestaurantDemo
 //
 //  Created by Abhishek Thapliyal on 2/16/17.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class RDVenueTableVC: UITableViewController {
+class RDVenueDetailVC: UITableViewController {
 
-    let reusableCellId = "RDVenueCell" as String
-    var venueList : NSMutableArray?
+    let reusableCellId = "RDVenueDetailCell" as String
+    public var restaurant : RDRestaurant?
+    @IBOutlet weak var venurIconView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,20 @@ class RDVenueTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let imageURL = NSURL(string : self.restaurant?.iconImgUrl as! String)
+        if let data = NSData(contentsOf: imageURL as! URL) {
+            self.venurIconView.image = UIImage(data: data as Data)
+        }
+        
+        DispatchQueue.main.async {
+            self.venurIconView.layer.cornerRadius = self.venurIconView.frame.size.width/2;
+            self.venurIconView.layer.masksToBounds = true
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,38 +53,19 @@ class RDVenueTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("ARRAY_COUNT_TVC \((self.venueList?.count)!)")
-        return (self.venueList?.count)!
+        return 0
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.reusableCellId, for: indexPath) as! RDVenueCell
-        
-        let restaurant = self.venueList?.object(at: indexPath.row) as! RDRestaurant
-        
-        let imageURL = NSURL(string : restaurant.iconImgUrl as! String)
-        if let data = NSData(contentsOf: imageURL as! URL) {
-            cell.iconImgView.image = UIImage(data: data as Data)
-        }
-        cell.nameLabel.text = restaurant.name! as String
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reusableCellId, for: indexPath) as! RDVenueDetailCell
 
-        let textString = NSString(format: "%@\n%@", (restaurant.address != nil ? restaurant.address! : ""),
-                                  (restaurant.crossStreet != nil ? restaurant.crossStreet! : "")) as String
-        
-        cell.streetAddLabel.text = textString
+        // Configure the cell...
 
         return cell
     }
  
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let restaurant = self.venueList?.object(at: indexPath.row) as! RDRestaurant
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let detailVC = storyBoard.instantiateViewController(withIdentifier: "RDVenueDetailVC") as! RDVenueDetailVC
-        detailVC.restaurant = restaurant
-        self.navigationController?.pushViewController(detailVC, animated: true)
-    }
 
     /*
     // Override to support conditional editing of the table view.

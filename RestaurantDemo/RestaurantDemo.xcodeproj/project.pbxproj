@@ -15,6 +15,8 @@
 		4688A5551E537EE8003628AB /* RDNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688A5541E537EE8003628AB /* RDNetworkManager.swift */; };
 		4689BA011E54D6A2005DE826 /* RDVenueTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689BA001E54D6A2005DE826 /* RDVenueTableVC.swift */; };
 		4689BA041E54E0BB005DE826 /* RDVenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689BA031E54E0BB005DE826 /* RDVenueCell.swift */; };
+		46F222B11E5567D6004FE8E4 /* RDVenueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F222B01E5567D6004FE8E4 /* RDVenueDetailVC.swift */; };
+		46F222B31E5568E2004FE8E4 /* RDVenueDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F222B21E5568E2004FE8E4 /* RDVenueDetailCell.swift */; };
 		46FD3BE31E51A0D7007E29AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FD3BE21E51A0D7007E29AC /* AppDelegate.swift */; };
 		46FD3BE51E51A0D7007E29AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FD3BE41E51A0D7007E29AC /* ViewController.swift */; };
 		46FD3BE81E51A0D7007E29AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FD3BE61E51A0D7007E29AC /* Main.storyboard */; };
@@ -71,6 +73,8 @@
 		4688A5541E537EE8003628AB /* RDNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDNetworkManager.swift; sourceTree = "<group>"; };
 		4689BA001E54D6A2005DE826 /* RDVenueTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDVenueTableVC.swift; sourceTree = "<group>"; };
 		4689BA031E54E0BB005DE826 /* RDVenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDVenueCell.swift; sourceTree = "<group>"; };
+		46F222B01E5567D6004FE8E4 /* RDVenueDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDVenueDetailVC.swift; sourceTree = "<group>"; };
+		46F222B21E5568E2004FE8E4 /* RDVenueDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDVenueDetailCell.swift; sourceTree = "<group>"; };
 		46FD3BDF1E51A0D7007E29AC /* RestaurantDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FD3BE21E51A0D7007E29AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46FD3BE41E51A0D7007E29AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				46FD3BE41E51A0D7007E29AC /* ViewController.swift */,
 				4688A54C1E536E08003628AB /* RDLocationManager.swift */,
 				4689BA001E54D6A2005DE826 /* RDVenueTableVC.swift */,
+				46F222B01E5567D6004FE8E4 /* RDVenueDetailVC.swift */,
 			);
 			name = RDViewControllers;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				4689BA031E54E0BB005DE826 /* RDVenueCell.swift */,
+				46F222B21E5568E2004FE8E4 /* RDVenueDetailCell.swift */,
 			);
 			name = RDTableCells;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4688A5551E537EE8003628AB /* RDNetworkManager.swift in Sources */,
+				46F222B11E5567D6004FE8E4 /* RDVenueDetailVC.swift in Sources */,
 				464FDB2B1E5223AB00507202 /* RDDatabaseManager.swift in Sources */,
 				46FD3BE51E51A0D7007E29AC /* ViewController.swift in Sources */,
 				4689BA011E54D6A2005DE826 /* RDVenueTableVC.swift in Sources */,
@@ -536,6 +543,7 @@
 				4688A5531E537EBE003628AB /* RDHTTPResponse.swift in Sources */,
 				46FD3BEB1E51A0D7007E29AC /* RestaurantDemo.xcdatamodeld in Sources */,
 				4689BA041E54E0BB005DE826 /* RDVenueCell.swift in Sources */,
+				46F222B31E5568E2004FE8E4 /* RDVenueDetailCell.swift in Sources */,
 				4688A54D1E536E08003628AB /* RDLocationManager.swift in Sources */,
 				46FD3BE31E51A0D7007E29AC /* AppDelegate.swift in Sources */,
 			);
