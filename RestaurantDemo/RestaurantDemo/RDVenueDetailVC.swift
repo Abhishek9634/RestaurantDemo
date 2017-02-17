@@ -100,8 +100,49 @@ class RDVenueDetailVC: UITableViewController {
     
     @IBAction func reviewButtonAction(_ sender: Any) {
     
-        self.showAlert()
+        self.performReviewOperation()
     }
+    
+    func performReviewOperation() {
+        
+        let alertController = UIAlertController(title: "Feedback", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let save = UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: {
+            alert -> Void in
+            
+            // SAVE ACTION
+            let textField = alertController.textFields![0] as UITextField
+            
+            if ((textField.text?.characters.count)! > 0) {
+            
+                let reviewOb = RDRestaurantReview()
+                reviewOb.id = self.restaurant?.id as String?
+                reviewOb.review = textField.text!
+                reviewOb.time = NSNumber(value: (NSDate().timeIntervalSince1970) * 1000)
+                
+                RDDBManager().insertReview(reviewOb: reviewOb)
+                
+                RDDBManager().fetchReviews(id: (self.restaurant?.id as String?)!)
+            }
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+            (action : UIAlertAction!) -> Void in
+
+            // CANCEL ACTION
+        })
+        
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            
+            textField.placeholder = "Write a review.."
+        }
+        
+        alertController.addAction(save)
+        alertController.addAction(cancel)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     @IBAction func locationButtonAction(_ sender: Any) {
         
