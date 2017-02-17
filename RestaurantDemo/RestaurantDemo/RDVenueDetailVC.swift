@@ -111,7 +111,8 @@ class RDVenueDetailVC: UITableViewController {
             return
         }
         
-        let location = NSString(format : "https://www.google.co.in/maps/@%@,%@,16z", (restaurant?.lat)!, (restaurant?.lng)!)
+        let location = NSString(format : "http://maps.google.com/maps?q=%@,%@", (restaurant?.lat)!, (restaurant?.lng)!)
+        
         let webURL = NSURL(string : location as String)
         UIApplication.shared.open(webURL as! URL, options: [:], completionHandler: nil)
     }

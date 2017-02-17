@@ -23,8 +23,8 @@ class RDRestaurant: NSObject {
     public var location : NSDictionary?
     public var address : NSString?
     public var crossStreet : NSString?
-    public var lat : NSString?
-    public var lng : NSString?
+    public var lat : NSNumber?
+    public var lng : NSNumber?
     
     public var labeledLatLngs : NSArray? // consist dictionary object(s)
     public var l_lat : NSNumber?
@@ -117,15 +117,16 @@ class RDRestaurant: NSObject {
         self.twitter = self.contact?["twitter"] as? NSString
         self.facebookUsername = self.contact?["facebookUsername"] as? NSString
         
-        self.phone = dictionary["url"] as? NSString
-        self.formattedPhone = dictionary["urlToImage"] as? NSString
-        self.twitter = dictionary["twitter"] as? NSString
         self.location = dictionary["location"] as? NSDictionary
         
         self.address = self.location?["address"] as? NSString
         self.crossStreet = self.location?["crossStreet"] as? NSString
-        self.lat = self.location?["lat"] as? NSString
-        self.lng = self.location?["lng"] as? NSString
+        self.lat = self.location?["lat"] as? NSNumber
+        self.lng = self.location?["lng"] as? NSNumber
+
+         print("lat \((self.lat)!)")
+         print("lng \((self.lng)!)")
+        
         self.formattedAddress = self.location?["formattedAddress"] as? NSArray
         
         self.categories = dictionary["categories"] as? NSArray
