@@ -31,13 +31,21 @@ class RDVenueDetailVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("VENUE_ID : \(self.restaurant?.id)")
         let imageURL = NSURL(string : self.restaurant?.iconImgUrl as! String)
         if let data = NSData(contentsOf: imageURL as! URL) {
             self.venurIconView.image = UIImage(data: data as Data)
         }
         
         self.nameLabel.text = self.restaurant?.name! as String?
-        self.addressLabel.text = self.restaurant?.formattedAddress?.description
+        
+        var address : String = ""
+        for str in (self.restaurant?.formattedAddress)! {
+            address = address + "\(str) \n"
+        }
+        
+//        self.addressLabel.text = self.restaurant?.formattedAddress?.description
+         self.addressLabel.text = address
         
         self.contactLabel.text = self.restaurant?.formattedPhone != nil ? self.restaurant?.formattedPhone! as String? : ""
 //      self.contactLabel.text = "12345"
@@ -80,7 +88,8 @@ class RDVenueDetailVC: UITableViewController {
     
     @IBAction func webPageButtonAction(_ sender: Any) {
     
-        if (self.restaurant?.url == nil || self.restaurant?.url == nil) {
+        print("WEB_LINK : \(self.restaurant?.url)")
+        if (self.restaurant?.url == nil) {
             self.showAlert()
             return
         }
@@ -96,6 +105,7 @@ class RDVenueDetailVC: UITableViewController {
     
     @IBAction func locationButtonAction(_ sender: Any) {
         
+        print("LAT_LNG : \(self.restaurant?.lat) && \(self.restaurant?.lng)")
         if (self.restaurant?.lat == nil || self.restaurant?.lng == nil) {
             self.showAlert()
             return
@@ -108,6 +118,7 @@ class RDVenueDetailVC: UITableViewController {
     
     @IBAction func twitterButtonAction(_ sender: Any) {
         
+        print("TWIITER : \(self.restaurant?.twitter)")
         if (self.restaurant?.twitter == nil) {
             self.showAlert()
             return
@@ -120,12 +131,13 @@ class RDVenueDetailVC: UITableViewController {
     
     @IBAction func fbButtonAction(_ sender: Any) {
      
+        print("FACEBOOK : \(self.restaurant?.facebookUsername)")
         if (self.restaurant?.facebookUsername == nil) {
             self.showAlert()
             return
         }
         
-        let faceBookURL = NSString(format : "https://m.facebook.com/%@",(restaurant?.facebookUsername)!)
+        let faceBookURL = NSString(format : "https://www.facebook.com/%@",(restaurant?.facebookUsername)!)
         let webURL = NSURL(string : faceBookURL as String)
         UIApplication.shared.open(webURL as! URL, options: [:], completionHandler: nil)
     }

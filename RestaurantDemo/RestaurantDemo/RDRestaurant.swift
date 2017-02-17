@@ -129,17 +129,19 @@ class RDRestaurant: NSObject {
         self.formattedAddress = self.location?["formattedAddress"] as? NSArray
         
         self.categories = dictionary["categories"] as? NSArray
-        let dict = self.categories?.object(at: 0) as? NSDictionary
-        self.icon = dict?["icon"] as? NSDictionary
-        self.prefix = self.icon?["prefix"] as? NSString
-        self.suffix = self.icon?["suffix"] as? NSString
         
-        
-        self.url = dictionary["url"] as? NSString
-        
-        self.iconImgUrl = NSString(format : "%@100%@",self.prefix!, self.suffix!)
+        if ((self.categories?.count)! > 0) {
+            
+            let dict = self.categories?.object(at: 0) as? NSDictionary
+            self.icon = dict?["icon"] as? NSDictionary
+            self.prefix = self.icon?["prefix"] as? NSString
+            self.suffix = self.icon?["suffix"] as? NSString
+            self.iconImgUrl = NSString(format : "%@100%@",self.prefix!, self.suffix!)
+        }
         print("ICON_IMG_URL \(self.iconImgUrl)")
         
+        self.url = dictionary["url"] as? NSString
+
         self.verified = dictionary["categories"] as? Bool
         self.stats = dictionary["stats"] as? NSDictionary
     }

@@ -47,9 +47,13 @@ class RDVenueTableVC: UITableViewController {
         
         let restaurant = self.venueList?.object(at: indexPath.row) as! RDRestaurant
         
-        let imageURL = NSURL(string : restaurant.iconImgUrl as! String)
-        if let data = NSData(contentsOf: imageURL as! URL) {
-            cell.iconImgView.image = UIImage(data: data as Data)
+        cell.iconImgView.image = UIImage(named: "restaurant_default_100.png")
+        if (restaurant.iconImgUrl != nil) {
+            
+            let imageURL = NSURL(string : restaurant.iconImgUrl as! String)
+            if let data = NSData(contentsOf: imageURL as! URL) {
+                cell.iconImgView.image = UIImage(data: data as Data)
+            }
         }
         cell.nameLabel.text = restaurant.name! as String
 
