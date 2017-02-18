@@ -6,6 +6,14 @@
 //  Copyright © 2017 Abhishek Thapliyal. All rights reserved.
 //
 
+enum SHORT_FEEDBACK : Int8 {
+    
+    case DISLIKE = -1
+    case DEFAULT = 0
+    case LIKE = 1
+}
+
+
 import UIKit
 
 class RDRestaurant: NSObject {
@@ -88,6 +96,8 @@ class RDRestaurant: NSObject {
     public var venueChains : NSArray? // consist dictionary object(s)
     public var v_id : NSString?
     public var hasPerk : Bool?
+
+    public var likeDislike : Int8?
     
     override init() {
         
@@ -143,8 +153,18 @@ class RDRestaurant: NSObject {
         
         self.url = dictionary["url"] as? NSString
 
+        self.menu = dictionary["menu"] as? NSDictionary
+        
+        if ((self.menu != nil) && (self.menu?.count)! > 0) {
+            
+            self.m_url = self.menu?["url"] as? NSString
+            self.m_mobileUrl = self.menu?["mobileUrl"] as? NSString
+        }
+    
         self.verified = dictionary["categories"] as? Bool
         self.stats = dictionary["stats"] as? NSDictionary
+        
+        self.likeDislike = SHORT_FEEDBACK.DEFAULT.rawValue
     }
     /*
 

@@ -28,7 +28,7 @@ class RDDBManager: NSObject {
         }
     }
     
-    public func fetchReviews(id: String) {
+    public func fetchReviews(id: String) -> NSMutableArray {
     
         let context = RDDatabaseManager().persistentContainer.viewContext
         let entityDescription = NSEntityDescription.entity(forEntityName: "DBReview", in: context)
@@ -37,16 +37,24 @@ class RDDBManager: NSObject {
         fetchRequest.entity = entityDescription
         fetchRequest.predicate = predicate
 
+        let resultArray = NSMutableArray()
+        
         do {
 //            let result = try context.fetch(fetchRequest)
 //            let review = result[0] as! NSManagedObject
 //            print(result) // for single result
             
             let result = try context.fetch(fetchRequest) as! [NSManagedObject]
+            
             for reviewOb in result {
             
-                if let id = reviewOb.value(forKey: "id"), let reviewText = reviewOb.value(forKey: "review") {
+                if let id = reviewOb.value(forKey: "id") as! NSString?, let reviewText = reviewOb.value(forKey: "review") as! NSString? {
                     print("\n \(id) && \(reviewText)")
+                    let reviewObject = RDRestaurantReview()
+                    reviewObject.id = id as String
+                    reviewObject.time = reviewOb.value(forKey: "time") as! NSNumber?
+                    reviewObject.review = reviewText as String
+                    resultArray.add(reviewObject)
                 }
             }
             
@@ -54,5 +62,6 @@ class RDDBManager: NSObject {
             let fetchError = error as NSError
             print(fetchError)
         }
+        return resultArray
     }
 }

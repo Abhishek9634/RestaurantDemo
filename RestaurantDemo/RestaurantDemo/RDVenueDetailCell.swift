@@ -10,6 +10,10 @@ import UIKit
 
 class RDVenueDetailCell: UITableViewCell {
 
+    
+    @IBOutlet weak var reviewLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
