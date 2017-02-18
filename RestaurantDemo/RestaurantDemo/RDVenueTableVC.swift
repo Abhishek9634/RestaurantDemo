@@ -51,7 +51,7 @@ class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
         print("ARRAY_COUNT_TVC \((self.venueList?.count)!)")
         return (self.venueList?.count)!
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: self.reusableCellId) as! RDVenueCell
@@ -70,6 +70,17 @@ class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
                                   (restaurant.crossStreet != nil ? restaurant.crossStreet! : "")) as String
         
         cell.streetAddLabel.text = textString
+        
+        if (restaurant.likeDislike! == 0) {
+            cell.likeDislikeButton.setImage(UIImage(named: "like_default.png"), for: .normal)
+        }
+        else if (restaurant.likeDislike! > 0) {
+            cell.likeDislikeButton.setImage(UIImage(named: "thumb_like.png"), for: .normal)
+        }
+        else {
+            cell.likeDislikeButton.setImage(UIImage(named: "thumb_dislike.png"), for: .normal)
+        }
+        
         cell.tag = indexPath.row
         cell.delegate = self
         
@@ -102,12 +113,11 @@ class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
             cell.likeDislikeButton.setImage(UIImage(named: "thumb_dislike.png"), for: .normal)
             restaurant.likeDislike = SHORT_FEEDBACK.DISLIKE.rawValue
         }
-        else  {
+        else {
             cell.likeDislikeButton.setImage(UIImage(named: "like_default.png"), for: .normal)
             restaurant.likeDislike = SHORT_FEEDBACK.DEFAULT.rawValue
         }
     }
-
     
     /*
     // Override to support conditional editing of the table view.
