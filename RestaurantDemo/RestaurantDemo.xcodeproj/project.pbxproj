@@ -71,8 +71,8 @@
 		38B3249D307D388E08ECD322 /* Pods-RestaurantDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestaurantDemoTests/Pods-RestaurantDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		460E49B21E57841C005570BD /* RDDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDDBManager.swift; sourceTree = "<group>"; };
 		460E49B41E5785C3005570BD /* RDRestaurantReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDRestaurantReview.swift; sourceTree = "<group>"; };
-		460E49B61E579593005570BD /* DBReview+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DBReview+CoreDataClass.swift"; sourceTree = "<group>"; };
-		460E49B71E579593005570BD /* DBReview+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DBReview+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		460E49B61E579593005570BD /* DBReview+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DBReview+CoreDataClass.swift"; path = "../DBReview+CoreDataClass.swift"; sourceTree = "<group>"; };
+		460E49B71E579593005570BD /* DBReview+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DBReview+CoreDataProperties.swift"; path = "../DBReview+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		464FDB2A1E5223AB00507202 /* RDDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDDatabaseManager.swift; sourceTree = "<group>"; };
 		4688A54C1E536E08003628AB /* RDLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDLocationManager.swift; sourceTree = "<group>"; };
 		4688A54E1E537A6F003628AB /* RDRestaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDRestaurant.swift; sourceTree = "<group>"; };
@@ -135,6 +135,8 @@
 		4613B0D01E541E200094F09D /* RDDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				460E49B61E579593005570BD /* DBReview+CoreDataClass.swift */,
+				460E49B71E579593005570BD /* DBReview+CoreDataProperties.swift */,
 				46FD3BE91E51A0D7007E29AC /* RestaurantDemo.xcdatamodeld */,
 				464FDB2A1E5223AB00507202 /* RDDatabaseManager.swift */,
 				460E49B21E57841C005570BD /* RDDBManager.swift */,
@@ -184,8 +186,6 @@
 		46FD3BD61E51A0D7007E29AC = {
 			isa = PBXGroup;
 			children = (
-				460E49B61E579593005570BD /* DBReview+CoreDataClass.swift */,
-				460E49B71E579593005570BD /* DBReview+CoreDataProperties.swift */,
 				46FD3BE11E51A0D7007E29AC /* RestaurantDemo */,
 				46FD3BF91E51A0D7007E29AC /* RestaurantDemoTests */,
 				46FD3C041E51A0D7007E29AC /* RestaurantDemoUITests */,
