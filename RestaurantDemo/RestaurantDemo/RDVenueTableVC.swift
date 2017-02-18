@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
 
@@ -53,17 +54,15 @@ class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.reusableCellId, for: indexPath) as! RDVenueCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reusableCellId) as! RDVenueCell
         
         let restaurant = self.venueList?.object(at: indexPath.row) as! RDRestaurant
         
         cell.iconImgView.image = UIImage(named: "restaurant_default_100.png")
         if (restaurant.iconImgUrl != nil) {
-            
+    
             let imageURL = NSURL(string : restaurant.iconImgUrl as! String)
-            if let data = NSData(contentsOf: imageURL as! URL) {
-                cell.iconImgView.image = UIImage(data: data as Data)
-            }
+            cell.iconImgView.sd_setImage(with: imageURL as URL!, placeholderImage: UIImage(named: "restaurant_default_100.png"))
         }
         cell.nameLabel.text = restaurant.name! as String
 

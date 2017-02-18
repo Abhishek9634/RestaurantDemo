@@ -81,7 +81,7 @@ class RDVenueDetailVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.reusableCellId, for: indexPath) as! RDVenueDetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reusableCellId) as! RDVenueDetailCell
 
         let reviewObject = self.mainReviewList?.object(at: indexPath.row) as! RDRestaurantReview
         cell.reviewLabel.text = reviewObject.review as String?
