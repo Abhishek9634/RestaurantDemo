@@ -8,13 +8,19 @@
 
 import UIKit
 
+protocol RDVenueCellDelegate: class {
+    func tableCell(cell: RDVenueCell)
+}
+
 class RDVenueCell: UITableViewCell {
 
-    
     @IBOutlet weak var iconImgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var streetAddLabel: UILabel!
     
+    @IBOutlet weak var likeDislikeButton: UIButton!
+    
+   weak var delegate: RDVenueCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +32,10 @@ class RDVenueCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func likeDislikeAction(_ sender: Any) {
+        
+        delegate?.tableCell(cell: self)
+    }
+    
 }

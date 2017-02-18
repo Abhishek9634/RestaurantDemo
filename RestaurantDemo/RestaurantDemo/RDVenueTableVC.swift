@@ -8,10 +8,14 @@
 
 import UIKit
 
-class RDVenueTableVC: UITableViewController {
+class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
 
     let reusableCellId = "RDVenueCell" as String
     var venueList : NSMutableArray?
+    
+    //============================================================================================================================
+    // VC : LIFE CYCLE
+    //============================================================================================================================
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +36,10 @@ class RDVenueTableVC: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+    //============================================================================================================================
+    //  // MARK: - Table view data source
+    //============================================================================================================================
+   
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -65,7 +71,9 @@ class RDVenueTableVC: UITableViewController {
                                   (restaurant.crossStreet != nil ? restaurant.crossStreet! : "")) as String
         
         cell.streetAddLabel.text = textString
-
+        cell.tag = indexPath.row
+        cell.delegate = self
+        
         return cell
     }
  
@@ -77,7 +85,31 @@ class RDVenueTableVC: UITableViewController {
         detailVC.restaurant = restaurant
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
+    
+    //============================================================================================================================
+    // MARK: - TABLE CUSTOM CELL : CUSTOM DELEGATE
+    //============================================================================================================================
+    
+    internal func tableCell(cell: RDVenueCell) {
+        
+        let indexPath : IndexPath = self.tableView.indexPath(for: cell)!
+        let restaurant = self.venueList?.object(at: indexPath.row) as! RDRestaurant
+        
+        if (restaurant.likeDislike! == 0) {
+            cell.likeDislikeButton.setImage(UIImage(named: "thumb_like.png"), for: .normal)
+            restaurant.likeDislike = SHORT_FEEDBACK.LIKE.rawValue
+        }
+        else if (restaurant.likeDislike! > 0) {
+            cell.likeDislikeButton.setImage(UIImage(named: "thumb_dislike.png"), for: .normal)
+            restaurant.likeDislike = SHORT_FEEDBACK.DISLIKE.rawValue
+        }
+        else  {
+            cell.likeDislikeButton.setImage(UIImage(named: "like_default.png"), for: .normal)
+            restaurant.likeDislike = SHORT_FEEDBACK.DEFAULT.rawValue
+        }
+    }
 
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
