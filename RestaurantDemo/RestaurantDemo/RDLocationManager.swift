@@ -40,7 +40,7 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
         super.viewWillAppear(animated)
         
         self.locationManager = CLLocationManager()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         self.locationManager.delegate = self
         let status = CLLocationManager.authorizationStatus()
         if status == .notDetermined {
@@ -106,7 +106,7 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
     
     func setLocationForRequest() {
         
-        var parameters = [Parameter.query:"Restaurants"]
+        var parameters = [Parameter.query:"restaurant"]
         parameters += self.location.parameters()
         parameters += [Parameter.radius: "2000"]
         parameters += [Parameter.limit: "50"]

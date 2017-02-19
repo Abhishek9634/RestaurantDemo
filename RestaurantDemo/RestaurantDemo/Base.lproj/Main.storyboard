@@ -159,7 +159,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="39" id="3oD-04-hMb"/>
                                             </constraints>
-                                            <state key="normal" title="L" image="like_default"/>
+                                            <state key="normal" image="like_default"/>
                                             <connections>
                                                 <action selector="likeDislikeAction:" destination="DOw-hP-Fni" eventType="touchDown" id="Wqp-2m-tnl"/>
                                             </connections>
@@ -228,7 +228,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1S-Ps-zOH">
                                                 <rect key="frame" x="8" y="148" width="359" height="28"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="CARPEDIEMMARKDEMO" family="CARPE DIEM MARK DEMO" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -407,7 +407,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RDVenueNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="5XS-YX-s20" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z1M-AN-Jbd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z1M-AN-Jbd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

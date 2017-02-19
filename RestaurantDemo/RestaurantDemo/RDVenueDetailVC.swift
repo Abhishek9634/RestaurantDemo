@@ -87,6 +87,11 @@ class RDVenueDetailVC: UITableViewController {
         cell.reviewLabel.text = reviewObject.review as String?
         cell.timeLabel.text = NSString(format:"%@", self.getFormatTime(time: reviewObject.time!)) as String
         
+        cell.backgroundColor = UIColor.white
+        if (indexPath.row % 2 != 0) {
+            cell.backgroundColor = UIColor(red:225.0/255, green:225.0/255, blue:250.0/255, alpha:0.4)
+        }
+        
         return cell
     }
     

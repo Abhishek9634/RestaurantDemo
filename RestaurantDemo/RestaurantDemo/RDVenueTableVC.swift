@@ -81,6 +81,11 @@ class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
             cell.likeDislikeButton.setImage(UIImage(named: "thumb_dislike.png"), for: .normal)
         }
         
+        cell.backgroundColor = UIColor.white
+        if (indexPath.row % 2 != 0) {
+            cell.backgroundColor = UIColor(red:180.0/255, green:100.0/255, blue:100.0/255, alpha:0.1)
+        }
+       
         cell.tag = indexPath.row
         cell.delegate = self
         
