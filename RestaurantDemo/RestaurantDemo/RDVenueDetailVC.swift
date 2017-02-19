@@ -85,7 +85,6 @@ class RDVenueDetailVC: UITableViewController {
 
         let reviewObject = self.mainReviewList?.object(at: indexPath.row) as! RDRestaurantReview
         cell.reviewLabel.text = reviewObject.review as String?
-//        cell.timeLabel.text = NSString(format:"%@", reviewObject.time!) as String
         cell.timeLabel.text = NSString(format:"%@", self.getFormatTime(time: reviewObject.time!)) as String
         
         return cell

@@ -39,11 +39,7 @@ class RDDBManager: NSObject {
 
         let resultArray = NSMutableArray()
         
-        do {
-//            let result = try context.fetch(fetchRequest)
-//            let review = result[0] as! NSManagedObject
-//            print(result) // for single result
-            
+        do {            
             let result = try context.fetch(fetchRequest) as! [NSManagedObject]
             
             for reviewOb in result {

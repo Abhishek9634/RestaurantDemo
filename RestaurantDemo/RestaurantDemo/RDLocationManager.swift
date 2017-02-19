@@ -11,18 +11,16 @@ import CoreLocation
 import QuadratTouch
 import MapKit
 
+typealias JSONParameters = [String: AnyObject]
+
 class RDLocationManager: UIViewController, CLLocationManagerDelegate {
 
     var locationManager : CLLocationManager!
     var session : Session!
-//    var viewObject : ViewController!
-    
-//    var session: Session!
     var location: CLLocation!
     var venues: [JSONParameters]!
     let distanceFormatter = MKDistanceFormatter()
     var currentTask: Task?
-    
     
     @IBOutlet weak var loading: UIActivityIndicatorView!
 
@@ -40,10 +38,6 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
-//        self.viewObject = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//        
-//        self.viewObject.session = self.session
         
         self.locationManager = CLLocationManager()
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -64,7 +58,12 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func OpenListAction(_ sender: Any) {
         
-//        self.present(self.viewObject, animated: true, completion: nil)
+        if self.location != nil {
+            self.setLocationForRequest()
+        }
+        else {
+             showNoPermissionsAlert()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -84,10 +83,8 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let newLocation = locations.first {
-//            self.viewObject.location = newLocation
             self.location = newLocation
             self.locationManager.stopUpdatingLocation()
-            self.setLocationForRequest()
         }
     }
     

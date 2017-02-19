@@ -9,25 +9,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="CANDY.otf">
+            <string>CANDYINC</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RestaurantDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1858" y="131"/>
-        </scene>
         <!--Location Manager-->
         <scene sceneID="dLQ-b3-yqx">
             <objects>
@@ -40,9 +27,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="mKA-Qz-6v1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YT1-73-qOW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0xe-88-lM4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdd-tl-AK8">
+                                            <rect key="frame" x="8" y="405" width="359" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="72" id="HNn-1y-kUN"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="CANDYINC" pointSize="66">
+                                                <string key="family">CANDY INC. Copyright (c) 2010 by Billy Argel. All rights reserved. free for personal use only. complete set available contact billyargel@gmail.com</string>
+                                            </fontDescription>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Jdd-tl-AK8" secondAttribute="bottom" constant="190" id="hCB-mt-cWM"/>
+                                        <constraint firstItem="Jdd-tl-AK8" firstAttribute="leading" secondItem="0xe-88-lM4" secondAttribute="leadingMargin" id="qf0-5H-NnO"/>
+                                        <constraint firstItem="Jdd-tl-AK8" firstAttribute="trailing" secondItem="0xe-88-lM4" secondAttribute="trailingMargin" id="ums-5F-vK5"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuD-bZ-oJv">
-                                <rect key="frame" x="16" y="105" width="343" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="16" y="550" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="upv-oA-9vO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CANDYINC" pointSize="33">
+                                    <string key="family">CANDY INC. Copyright (c) 2010 by Billy Argel. All rights reserved. free for personal use only. complete set available contact billyargel@gmail.com</string>
+                                </fontDescription>
+                                <state key="normal" title="Let's Go">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="OpenListAction:" destination="ivX-Ef-eKx" eventType="touchDown" id="VYd-ID-2NK"/>
                                 </connections>
@@ -51,14 +75,31 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.24532043147208127" green="0.12452867141197665" blue="0.16976531236902412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ycn-mc-FsN">
+                                <rect key="frame" x="127" y="89" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="2gH-wu-vzi"/>
+                                    <constraint firstAttribute="width" constant="120" id="EgD-iy-EHu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="trailing" secondItem="KKG-ku-FhH" secondAttribute="trailingMargin" id="67A-K4-VGl"/>
-                            <constraint firstItem="feb-Pe-kIX" firstAttribute="centerY" secondItem="KKG-ku-FhH" secondAttribute="centerY" id="8Ff-Qw-LXy"/>
-                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="centerX" secondItem="feb-Pe-kIX" secondAttribute="centerX" id="Okt-0D-BQy"/>
-                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="top" secondItem="zq5-XK-sje" secondAttribute="bottom" constant="85" id="rCC-14-Szf"/>
-                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="leading" secondItem="KKG-ku-FhH" secondAttribute="leadingMargin" id="tof-c7-PEh"/>
+                            <constraint firstItem="YT1-73-qOW" firstAttribute="leading" secondItem="mKA-Qz-6v1" secondAttribute="leading" id="4Co-OJ-lpv"/>
+                            <constraint firstItem="mKA-Qz-6v1" firstAttribute="top" secondItem="KKG-ku-FhH" secondAttribute="top" id="9LD-cB-aax"/>
+                            <constraint firstAttribute="trailing" secondItem="mKA-Qz-6v1" secondAttribute="trailing" id="IAH-qo-mX6"/>
+                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="leading" secondItem="KKG-ku-FhH" secondAttribute="leadingMargin" id="MBH-oP-71L"/>
+                            <constraint firstItem="mKA-Qz-6v1" firstAttribute="top" secondItem="YT1-73-qOW" secondAttribute="top" id="MWr-7f-80f"/>
+                            <constraint firstItem="YT1-73-qOW" firstAttribute="leading" secondItem="KKG-ku-FhH" secondAttribute="leading" id="MtE-ia-LNq"/>
+                            <constraint firstItem="Ycn-mc-FsN" firstAttribute="centerX" secondItem="feb-Pe-kIX" secondAttribute="centerX" id="Nzn-J8-z2K"/>
+                            <constraint firstItem="YT1-73-qOW" firstAttribute="bottom" secondItem="w1c-ce-dit" secondAttribute="top" id="RF8-jQ-bOu"/>
+                            <constraint firstItem="YT1-73-qOW" firstAttribute="trailing" secondItem="mKA-Qz-6v1" secondAttribute="trailing" id="TbZ-18-Ply"/>
+                            <constraint firstItem="YT1-73-qOW" firstAttribute="centerY" secondItem="feb-Pe-kIX" secondAttribute="centerY" id="faU-tG-kVl"/>
+                            <constraint firstItem="mKA-Qz-6v1" firstAttribute="centerX" secondItem="Ycn-mc-FsN" secondAttribute="centerX" id="niL-Bv-K4R"/>
+                            <constraint firstItem="Ycn-mc-FsN" firstAttribute="top" secondItem="zq5-XK-sje" secondAttribute="bottom" constant="69" id="rr0-uE-ehs"/>
+                            <constraint firstItem="mKA-Qz-6v1" firstAttribute="bottom" secondItem="w1c-ce-dit" secondAttribute="top" id="tN4-TO-gH5"/>
+                            <constraint firstItem="w1c-ce-dit" firstAttribute="top" secondItem="iuD-bZ-oJv" secondAttribute="bottom" constant="87" id="wK4-RN-brz"/>
+                            <constraint firstItem="feb-Pe-kIX" firstAttribute="centerX" secondItem="iuD-bZ-oJv" secondAttribute="centerX" id="zZg-ZU-SDp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -82,7 +123,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOw-hP-Fni" id="9sQ-If-0nI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXI-bp-QQ5">
@@ -307,7 +348,7 @@
                                 <rect key="frame" x="0.0" y="417" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Rg-7k-hF6" id="w5s-HX-svh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIf-16-Rhy">
@@ -363,7 +404,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RDVenueNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="5XS-YX-s20" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z1M-AN-Jbd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z1M-AN-Jbd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -382,10 +423,12 @@
         <image name="fb_icon_40" width="40" height="40"/>
         <image name="like_default" width="30" height="30"/>
         <image name="location_40" width="40" height="40"/>
+        <image name="logo" width="512" height="512"/>
         <image name="menu_icon_40" width="40" height="40"/>
         <image name="review_40" width="40" height="40"/>
         <image name="rp" width="375" height="250"/>
         <image name="twitter_40" width="40" height="40"/>
+        <image name="wall" width="200" height="374"/>
         <image name="web_40" width="40" height="40"/>
     </resources>
 </document>

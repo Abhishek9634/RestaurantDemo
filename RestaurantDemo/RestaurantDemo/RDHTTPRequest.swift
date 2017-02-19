@@ -19,7 +19,6 @@ class RDHTTPRequest: NSObject {
         let requestURL = URL(string:urlString)!
         let request = NSMutableURLRequest(url:requestURL)
         request.httpMethod = "POST"
-        //        request.timeoutInterval = 600 // DEFAULT 60 secs
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = paramString?.data(using: String.Encoding.utf8)
         
@@ -40,7 +39,6 @@ class RDHTTPRequest: NSObject {
         let request = NSMutableURLRequest(url:requestURL)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
-        //        request.timeoutInterval = 600
         
         return request
     }
