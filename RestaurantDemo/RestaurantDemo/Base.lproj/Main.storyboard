@@ -40,17 +40,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuD-bZ-oJv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuD-bZ-oJv">
                                 <rect key="frame" x="16" y="105" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="OpenListAction:" destination="ivX-Ef-eKx" eventType="touchDown" id="VYd-ID-2NK"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="feb-Pe-kIX">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.24532043147208127" green="0.12452867141197665" blue="0.16976531236902412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="trailing" secondItem="KKG-ku-FhH" secondAttribute="trailingMargin" id="67A-K4-VGl"/>
+                            <constraint firstItem="feb-Pe-kIX" firstAttribute="centerY" secondItem="KKG-ku-FhH" secondAttribute="centerY" id="8Ff-Qw-LXy"/>
+                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="centerX" secondItem="feb-Pe-kIX" secondAttribute="centerX" id="Okt-0D-BQy"/>
+                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="top" secondItem="zq5-XK-sje" secondAttribute="bottom" constant="85" id="rCC-14-Szf"/>
+                            <constraint firstItem="iuD-bZ-oJv" firstAttribute="leading" secondItem="KKG-ku-FhH" secondAttribute="leadingMargin" id="tof-c7-PEh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loading" destination="feb-Pe-kIX" id="sWe-MJ-IAd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaO-hz-CfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +82,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOw-hP-Fni" id="9sQ-If-0nI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXI-bp-QQ5">
@@ -136,7 +149,13 @@
                             <outlet property="delegate" destination="2vO-Oi-ima" id="TTJ-ZZ-LX4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KVm-lr-0v4"/>
+                    <navigationItem key="navigationItem" title="Venues" id="AE2-Oi-8O2">
+                        <barButtonItem key="leftBarButtonItem" image="back_button" id="3Zm-hg-hWx">
+                            <connections>
+                                <action selector="backButtonAction:" destination="2vO-Oi-ima" id="fSa-8G-FxU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nE-ct-dZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,7 +307,7 @@
                                 <rect key="frame" x="0.0" y="417" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Rg-7k-hF6" id="w5s-HX-svh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIf-16-Rhy">
@@ -359,6 +378,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_button" width="15" height="25"/>
         <image name="fb_icon_40" width="40" height="40"/>
         <image name="like_default" width="30" height="30"/>
         <image name="location_40" width="40" height="40"/>

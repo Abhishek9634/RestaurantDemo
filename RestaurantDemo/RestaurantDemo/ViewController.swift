@@ -42,6 +42,22 @@ class ViewController: UIViewController {
             (result) -> Void in
             if let response = result.response {
                 self.venues = response["venues"] as! [JSONParameters]?
+                
+                OperationQueue.main.addOperation {
+                    let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+                    let navigationVC = storyBoard.instantiateViewController(withIdentifier: "RDVenueNavigationVC") as! UINavigationController
+                    
+                    let viewcontroller = (navigationVC.viewControllers as [UIViewController])[0] as! RDVenueTableVC
+                    viewcontroller.venueList = NSMutableArray()
+                    for dictObject in self.venues  {
+                        
+                        let restaurantObj = RDRestaurant(dictionary: dictObject)
+                        viewcontroller.venueList?.add(restaurantObj)
+                    }
+                    print("ARRAY_COUNT \(viewcontroller.venueList?.count)!")
+                    self.present(navigationVC, animated: true, completion: nil)
+                }
+                
             }
         }
         searchTask.start()
@@ -55,24 +71,24 @@ class ViewController: UIViewController {
      */
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let requestManager = RDNetworkManager()
-        let URL = "https://api.foursquare.com/v2/venues/search?client_secret=VFA414TABVTOTQPIAOEKEQSMW4GOKQTLY4BKKB4GM0W5FHUS&llAcc=5.0&limit=50&ll=37.33233141,-122.0312186&client_id=PDZY43TGZKAVF3WA1T4QG1BN2BYJJ44YKLZPGZF4UGFBTJKE&alt=0.0&altAcc=-1.0&v=20140503&query=Restaurants&locale=en"
+//        
+//        let requestManager = RDNetworkManager()
+//        let URL = "https://api.foursquare.com/v2/venues/search?client_secret=VFA414TABVTOTQPIAOEKEQSMW4GOKQTLY4BKKB4GM0W5FHUS&llAcc=5.0&limit=50&ll=37.33233141,-122.0312186&client_id=PDZY43TGZKAVF3WA1T4QG1BN2BYJJ44YKLZPGZF4UGFBTJKE&alt=0.0&altAcc=-1.0&v=20140503&query=Restaurants&locale=en"
         
 //        let URL = "https://api.foursquare.com/v2/venues/search?client_secret=VFA414TABVTOTQPIAOEKEQSMW4GOKQTLY4BKKB4GM0W5FHUS&llAcc=5.0&limit=50&ll=12.9432013,77.6250177&client_id=PDZY43TGZKAVF3WA1T4QG1BN2BYJJ44YKLZPGZF4UGFBTJKE&alt=0.0&altAcc=-1.0&v=20140503&query=Restaurants&locale=en"
         
-        requestManager.getNearVenues(urlString: URL as NSString) { (array, error) in
-            
-            OperationQueue.main.addOperation {
-                let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-                let navigationVC = storyBoard.instantiateViewController(withIdentifier: "RDVenueNavigationVC") as! UINavigationController
-               
-                let viewcontroller = (navigationVC.viewControllers as [UIViewController])[0] as! RDVenueTableVC
-                viewcontroller.venueList = NSMutableArray(array:array)
-                print("ARRAY_COUNT \(viewcontroller.venueList?.count)!")
-                self.present(navigationVC, animated: true, completion: nil)
-            }
-        }
+//        requestManager.getNearVenues(urlString: URL as NSString) { (array, error) in
+//            
+//            OperationQueue.main.addOperation {
+//                let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+//                let navigationVC = storyBoard.instantiateViewController(withIdentifier: "RDVenueNavigationVC") as! UINavigationController
+//               
+//                let viewcontroller = (navigationVC.viewControllers as [UIViewController])[0] as! RDVenueTableVC
+//                viewcontroller.venueList = NSMutableArray(array:array)
+//                print("ARRAY_COUNT \(viewcontroller.venueList?.count)!")
+//                self.present(navigationVC, animated: true, completion: nil)
+//            }
+//        }
     }
     
 }

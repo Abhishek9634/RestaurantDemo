@@ -9,13 +9,22 @@
 import UIKit
 import CoreLocation
 import QuadratTouch
+import MapKit
 
 class RDLocationManager: UIViewController, CLLocationManagerDelegate {
 
     var locationManager : CLLocationManager!
     var session : Session!
-    var viewObject : ViewController!
+//    var viewObject : ViewController!
     
+//    var session: Session!
+    var location: CLLocation!
+    var venues: [JSONParameters]!
+    let distanceFormatter = MKDistanceFormatter()
+    var currentTask: Task?
+    
+    
+    @IBOutlet weak var loading: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +41,9 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
         
         super.viewWillAppear(animated)
         
-        self.viewObject = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        
-        self.viewObject.session = self.session
+//        self.viewObject = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//        
+//        self.viewObject.session = self.session
         
         self.locationManager = CLLocationManager()
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -48,12 +57,14 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
         } else {
             showNoPermissionsAlert()
         }
+        
+        self.loading.startAnimating()
     }
     
     
     @IBAction func OpenListAction(_ sender: Any) {
         
-        self.present(self.viewObject, animated: true, completion: nil)
+//        self.present(self.viewObject, animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -62,6 +73,7 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
         } else {
             self.locationManager.startUpdatingLocation()
         }
+        self.loading.stopAnimating()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -72,8 +84,10 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let newLocation = locations.first {
-            self.viewObject.location = newLocation
+//            self.viewObject.location = newLocation
+            self.location = newLocation
             self.locationManager.stopUpdatingLocation()
+            self.setLocationForRequest()
         }
     }
     
@@ -93,6 +107,36 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
         present(alertController, animated: true, completion: nil)
     }
     
+    func setLocationForRequest() {
+        
+        var parameters = [Parameter.query:"Restaurants"]
+        parameters += self.location.parameters()
+        parameters += [Parameter.radius: "2000"]
+        parameters += [Parameter.limit: "50"]
+        let searchTask = session.venues.search(parameters) {
+            (result) -> Void in
+            if let response = result.response {
+                self.venues = response["venues"] as! [JSONParameters]?
+                
+                OperationQueue.main.addOperation {
+                    let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+                    let navigationVC = storyBoard.instantiateViewController(withIdentifier: "RDVenueNavigationVC") as! UINavigationController
+                    
+                    let viewcontroller = (navigationVC.viewControllers as [UIViewController])[0] as! RDVenueTableVC
+                    viewcontroller.venueList = NSMutableArray()
+                    for dictObject in self.venues  {
+                        
+                        let restaurantObj = RDRestaurant(dictionary: dictObject)
+                        viewcontroller.venueList?.add(restaurantObj)
+                    }
+                    print("ARRAY_COUNT \(viewcontroller.venueList?.count)!")
+                    self.present(navigationVC, animated: true, completion: nil)
+                }
+                
+            }
+        }
+        searchTask.start()
+    }
 }
 
 extension CLLocation {
