@@ -13,6 +13,9 @@
         <array key="CANDY.otf">
             <string>CANDYINC</string>
         </array>
+        <array key="CARPE DIEM MARK DEMO.otf">
+            <string>CARPEDIEMMARKDEMO</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Location Manager-->
@@ -117,7 +120,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="kby-w4-CuJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96109930128113108" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RDVenueCell" rowHeight="120" id="DOw-hP-Fni" customClass="RDVenueCell" customModule="RestaurantDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
@@ -126,21 +129,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXI-bp-QQ5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXI-bp-QQ5">
                                             <rect key="frame" x="118" y="8" width="249" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="29" id="nbz-h1-UP3"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="CARPEDIEMMARKDEMO" family="CARPE DIEM MARK DEMO" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4M-ze-0Z8">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4M-ze-0Z8">
                                             <rect key="frame" x="118" y="44" width="249" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="f9Z-bY-Aht"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="CARPEDIEMMARKDEMO" family="CARPE DIEM MARK DEMO" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -256,7 +259,7 @@
                                         <constraint firstAttribute="width" constant="311" id="CN7-md-Wx1"/>
                                         <constraint firstAttribute="height" constant="78" id="JIO-rN-j9n"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <fontDescription key="fontDescription" name="CARPEDIEMMARKDEMO" family="CARPE DIEM MARK DEMO" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -300,7 +303,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="28" id="IAD-VP-wz6"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <fontDescription key="fontDescription" name="CARPEDIEMMARKDEMO" family="CARPE DIEM MARK DEMO" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -313,7 +316,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.85811689759999998" blue="0.84834515300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="5TI-ra-8sY" firstAttribute="leading" secondItem="x7f-eE-nZk" secondAttribute="leading" id="0ML-lL-YYl"/>
                                 <constraint firstItem="M7V-gW-dxL" firstAttribute="leading" secondItem="qkx-21-qES" secondAttribute="trailing" constant="8" symbolic="YES" id="3aE-tx-jVX"/>
@@ -362,7 +365,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yN-gD-iXT">
                                             <rect key="frame" x="8" y="8" width="220" height="47"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="CARPEDIEMMARKDEMO" family="CARPE DIEM MARK DEMO" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -404,7 +407,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RDVenueNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="5XS-YX-s20" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z1M-AN-Jbd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z1M-AN-Jbd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
