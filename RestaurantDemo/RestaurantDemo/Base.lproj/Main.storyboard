@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ivX-Ef-eKx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ivX-Ef-eKx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -197,6 +197,11 @@
                         <barButtonItem key="leftBarButtonItem" image="back_button" id="3Zm-hg-hWx">
                             <connections>
                                 <action selector="backButtonAction:" destination="2vO-Oi-ima" id="fSa-8G-FxU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="uzY-eb-pX6">
+                            <connections>
+                                <action selector="searchButtonAction:" destination="2vO-Oi-ima" id="cQh-4I-g6z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -8,11 +8,16 @@
 
 import UIKit
 import SDWebImage
+import QuadratTouch
+import CoreLocation
 
 class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
 
     let reusableCellId = "RDVenueCell" as String
     var venueList : NSMutableArray?
+    
+    var session : Session!
+    var location: CLLocation!
     
     //============================================================================================================================
     // VC : LIFE CYCLE
@@ -37,6 +42,57 @@ class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func searchButtonAction(_ sender: Any) {
+        
+        let alertController = UIAlertController.init(title: "Write Place...", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alertController.addTextField { (txtField) in
+            txtField.placeholder = "Add Place here..."
+        }
+        
+        
+        let cancel = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.destructive, handler: nil)
+        
+        let search = UIAlertAction.init(title: "Search", style: UIAlertActionStyle.default) { (alertAction) in
+            
+            let txtField = alertController.textFields?.first
+            
+            if (!((txtField?.text?.isEmpty)!)) {
+                self.searchPlaces(param: (txtField?.text)!)
+            }
+        }
+        
+        alertController.addAction(search)
+        alertController.addAction(cancel)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    var venues: [JSONParameters]!
+    
+    func searchPlaces(param text: String) {
+        
+        var parameters = [Parameter.query:text]
+        parameters += self.location.parameters()
+        parameters += [Parameter.radius: "2000"]
+        parameters += [Parameter.limit: "50"]
+        let searchTask = session.venues.search(parameters) {
+            (result) -> Void in
+            if let response = result.response {
+                self.venues = response["venues"] as! [JSONParameters]?
+                
+//                DispatchQueue.main.async {
+                    for dictObject in self.venues  {
+                        
+                        let restaurantObj = RDRestaurant(dictionary: dictObject)
+                        print("PLACE NAME \(restaurantObj.name)!")
+                    }
+//                }
+            }
+        }
+        searchTask.start()
+    }
+    
     //============================================================================================================================
     //  // MARK: - Table view data source
     //============================================================================================================================

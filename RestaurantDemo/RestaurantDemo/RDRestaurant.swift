@@ -134,8 +134,8 @@ class RDRestaurant: NSObject {
         self.lat = self.location?["lat"] as? NSNumber
         self.lng = self.location?["lng"] as? NSNumber
 
-         print("lat \((self.lat)!)")
-         print("lng \((self.lng)!)")
+//         print("lat \((self.lat)!)")
+//         print("lng \((self.lng)!)")
         
         self.formattedAddress = self.location?["formattedAddress"] as? NSArray
         
@@ -149,7 +149,7 @@ class RDRestaurant: NSObject {
             self.suffix = self.icon?["suffix"] as? NSString
             self.iconImgUrl = NSString(format : "%@100%@",self.prefix!, self.suffix!)
         }
-        print("ICON_IMG_URL \(self.iconImgUrl)")
+//        print("ICON_IMG_URL \(self.iconImgUrl)")
         
         self.url = dictionary["url"] as? NSString
 

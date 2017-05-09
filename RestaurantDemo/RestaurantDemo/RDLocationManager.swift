@@ -121,6 +121,8 @@ class RDLocationManager: UIViewController, CLLocationManagerDelegate {
                     
                     let viewcontroller = (navigationVC.viewControllers as [UIViewController])[0] as! RDVenueTableVC
                     viewcontroller.venueList = NSMutableArray()
+                    viewcontroller.session = self.session
+                    viewcontroller.location = self.location
                     for dictObject in self.venues  {
                         
                         let restaurantObj = RDRestaurant(dictionary: dictObject)
