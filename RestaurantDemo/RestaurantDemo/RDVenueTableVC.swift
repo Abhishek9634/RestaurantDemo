@@ -50,13 +50,10 @@ class RDVenueTableVC: UITableViewController, RDVenueCellDelegate {
             txtField.placeholder = "Add Place here..."
         }
         
-        
         let cancel = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.destructive, handler: nil)
-        
         let search = UIAlertAction.init(title: "Search", style: UIAlertActionStyle.default) { (alertAction) in
             
             let txtField = alertController.textFields?.first
-            
             if (!((txtField?.text?.isEmpty)!)) {
                 self.searchPlaces(param: (txtField?.text)!)
             }
